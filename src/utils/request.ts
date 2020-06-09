@@ -63,7 +63,7 @@ export function createRequestAPI<T = unknown, R = any>(
         const { data } = resp;
         if (isRequestError(data)) {
           if (mergedConfig.shouldEmitErrorEvent) {
-            eventEmitter.emit(Event.Error, null, data);
+            eventEmitter.emit(Event.Error, data);
           }
           return Promise.reject(data);
         }

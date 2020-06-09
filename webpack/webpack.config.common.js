@@ -1,5 +1,6 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const babelLoader = {
   loader: 'babel-loader',
@@ -49,6 +50,10 @@ module.exports = () => {
     plugins: [
       new ForkTsCheckerWebpackPlugin({
         eslint: true,
+        reportFiles: ['src/**/*.{ts,tsx}'],
+      }),
+      new HtmlWebpackPlugin({
+        title: 'A React App'
       }),
     ],
   };
